@@ -22,6 +22,12 @@ extension on String {
   bool get isBlank => trim().isEmpty;
 }
 
+extension FancyNum on num {
+  num plus(num other) => this + other;
+
+  num times(num other) => this * other;
+}
+
 //You can't invoke extension methods on variables of type dynamic.We can invoke extension method on
 //Static typeonly.
 // For example,
