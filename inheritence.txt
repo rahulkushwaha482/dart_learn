@@ -1,0 +1,127 @@
+In Dart, inheritance is a fundamental feature of object-oriented programming that allows a class (called a subclass or derived class) to inherit properties and methods from another class (called a superclass or base class). Dart supports various types of inheritance, which can be classified into the following categories:
+
+1. Single Inheritance
+Single inheritance occurs when a class inherits from one superclass only. This is the most common type of inheritance and helps maintain a clear and simple class hierarchy.
+
+Example:
+
+dart
+Copy code
+class Animal {
+  void speak() {
+    print('Animal speaks');
+  }
+}
+
+class Dog extends Animal {
+  void bark() {
+    print('Dog barks');
+  }
+}
+
+void main() {
+  Dog dog = Dog();
+  dog.speak(); // Outputs: Animal speaks
+  dog.bark();  // Outputs: Dog barks
+}
+2. Multilevel Inheritance
+Multilevel inheritance involves a class inheriting from another class, which in turn may inherit from another class. This creates a hierarchy of classes.
+
+Example:
+
+dart
+Copy code
+class Animal {
+  void eat() {
+    print('Animal eats');
+  }
+}
+
+class Dog extends Animal {
+  void bark() {
+    print('Dog barks');
+  }
+}
+
+class Puppy extends Dog {
+  void weep() {
+    print('Puppy weeps');
+  }
+}
+
+void main() {
+  Puppy puppy = Puppy();
+  puppy.eat();  // Outputs: Animal eats
+  puppy.bark(); // Outputs: Dog barks
+  puppy.weep(); // Outputs: Puppy weeps
+}
+3. Hierarchical Inheritance
+Hierarchical inheritance occurs when multiple subclasses inherit from a single superclass. This allows different subclasses to share the same base functionality.
+
+Example:
+
+dart
+Copy code
+class Animal {
+  void eat() {
+    print('Animal eats');
+  }
+}
+
+class Dog extends Animal {
+  void bark() {
+    print('Dog barks');
+  }
+}
+
+class Cat extends Animal {
+  void meow() {
+    print('Cat meows');
+  }
+}
+
+void main() {
+  Dog dog = Dog();
+  dog.eat();  // Outputs: Animal eats
+  dog.bark(); // Outputs: Dog barks
+
+  Cat cat = Cat();
+  cat.eat();  // Outputs: Animal eats
+  cat.meow(); // Outputs: Cat meows
+}
+4. Multiple Inheritance (via Mixins)
+Dart does not support multiple inheritance in the traditional sense (a class inheriting from multiple superclasses), but it allows for multiple inheritance-like behavior through mixins. A mixin is a special type of class that can be used to provide methods and properties to other classes.
+
+Example:
+
+dart
+Copy code
+mixin Flyer {
+  void fly() {
+    print('Flying');
+  }
+}
+
+mixin Swimmer {
+  void swim() {
+    print('Swimming');
+  }
+}
+
+class Duck with Flyer, Swimmer {
+  void quack() {
+    print('Quacking');
+  }
+}
+
+void main() {
+  Duck duck = Duck();
+  duck.fly();   // Outputs: Flying
+  duck.swim();  // Outputs: Swimming
+  duck.quack(); // Outputs: Quacking
+}
+Summary of Inheritance Types
+Single Inheritance: A class inherits from one superclass.
+Multilevel Inheritance: A class inherits from another class, forming a hierarchy.
+Hierarchical Inheritance: Multiple subclasses inherit from a single superclass.
+Multiple Inheritance (Mixins): A class can use multiple mixins to inherit behavior.
