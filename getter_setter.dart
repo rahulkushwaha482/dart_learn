@@ -10,6 +10,10 @@
 // A setter is a method that allows you to set the value of a property.
 //Setters are defined using the set keyword.
 
+//Encapsulation is a technique for hiding property or method while still allowing access
+// to it within the scope of the function. Unlike other object-oriented programming
+//languages, Dart encapsulates data at the library level rather than the class level.
+
 class Person {
   String _name;
   int _age;

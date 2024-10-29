@@ -106,57 +106,43 @@
 //   print('Main isolate is still responsive.');
 // }
 
-// import 'dart:isolate';
-
-// // Isolate function to process a large list of numbers
-// void processData(SendPort sendPort) {
-//   List<int> data = List.generate(1000000, (i) => i);
-//   // print(data);
-
-//   // 1st way add and sum all elements in a list
-//   // int sum = data.reduce((a, b) => a + b);
-
-//   // int sum = 0;
-//   // 2nd way add and sum all elements in a list
-
-//   // data.forEach((element) {
-//   //   sum += element;
-//   // });
-//   // 3rd way add and sum all elements in a list
-
-//   int sum = 0;
-
-//   for (int element in data) {
-//     sum += element;
-//   }
-
-//   sendPort.send(sum);
-// }
-
-// void main() async {
-//   ReceivePort receivePort = ReceivePort();
-
-//   // Start an isolate to process data
-//   await Isolate.spawn(processData, receivePort.sendPort);
-
-//   // Get the result from the isolate
-//   receivePort.listen((sum) {
-//     print('Sum of large data: $sum'); // Output: Sum of large data: 499999500000
-//     receivePort.close();
-//   });
-//   print('main isolates is still working fine');
-// }
-
-import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'dart:isolate';
 
-void main() async {
-  int result = await compute(factorial, 10);
-  print("Factorial result: $result");
+// Isolate function to process a large list of numbers
+void processData(SendPort sendPort) {
+  List<int> data = List.generate(1000000, (i) => i);
+  // print(data);
+
+  // 1st way add and sum all elements in a list
+  // int sum = data.reduce((a, b) => a + b);
+
+  // int sum = 0;
+  // 2nd way add and sum all elements in a list
+
+  // data.forEach((element) {
+  //   sum += element;
+  // });
+  // 3rd way add and sum all elements in a list
+
+  int sum = 0;
+
+  for (int element in data) {
+    sum += element;
+  }
+
+  sendPort.send(sum);
 }
 
-// Function to calculate factorial
-int factorial(int n) {
-  return n <= 1 ? 1 : n * factorial(n - 1);
+void main() async {
+  ReceivePort receivePort = ReceivePort();
+
+  // Start an isolate to process data
+  await Isolate.spawn(processData, receivePort.sendPort);
+
+  // Get the result from the isolate
+  receivePort.listen((sum) {
+    print('Sum of large data: $sum'); // Output: Sum of large data: 499999500000
+    receivePort.close();
+  });
+  print('main isolates is still working fine');
 }

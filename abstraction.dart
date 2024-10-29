@@ -1,6 +1,9 @@
 abstract class Shape {
-  // Abstract method
-  double getArea();
+  double calculateArea();
+
+  void displayInfo() {
+    print('This is Shape class');
+  }
 }
 
 class Circle extends Shape {
@@ -8,31 +11,26 @@ class Circle extends Shape {
 
   Circle(this.radius);
 
-  // Implementing the abstract method
   @override
-  double getArea() {
-    return 3.14 * radius * radius;
+  double calculateArea() {
+    return 3.1416 * radius * radius;
   }
 }
 
 class Rectangle extends Shape {
+  final double length;
   final double width;
-  final double height;
 
-  Rectangle(this.width, this.height);
+  Rectangle(this.length, this.width);
 
-  // Implementing the abstract method
   @override
-  double getArea() {
-    return width * height;
-  }
+  double calculateArea() => length * width;
 }
 
 void main() {
-  Shape circle = Circle(5);
+  Shape circle = Circle(2);
   Shape rectangle = Rectangle(4, 6);
 
-  print("Circle area: ${circle.getArea()}"); // Outputs: Circle area: 78.5
-  print(
-      "Rectangle area: ${rectangle.getArea()}"); // Outputs: Rectangle area: 24
+  print(circle.calculateArea());
+  print(rectangle.calculateArea());
 }
