@@ -1,4 +1,6 @@
-Implementing dependency injection (DI) in Flutter is a common practice that helps manage the dependencies of your application, making it easier to maintain and test. Here are some popular approaches to implement dependency injection in Flutter:
+Implementing dependency injection (DI) in Flutter is a common practice that helps manage the dependencies of your application,
+ making it easier to maintain and test. Here are some popular approaches to implement dependency injection 
+ in Flutter:
 
 1. Using Provider
 Provider is a popular state management solution in Flutter that also serves as a simple DI framework. Here’s how to implement DI using Provider.
@@ -98,6 +100,7 @@ You can access the registered service anywhere in your app:
 
 dart
 Copy code
+
 class ApiService {
   String fetchData() {
     return "Data from API";

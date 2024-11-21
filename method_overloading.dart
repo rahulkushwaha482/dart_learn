@@ -1,7 +1,8 @@
 // Dart does not support method overloading in the traditional sense, as seen in languages like Java or C#. In Dart, you cannot have multiple methods with the same name but different parameter types or counts within the same class. However, there are alternative approaches to achieve similar functionality.
 
 // Alternatives to Method Overloading in Dart
-// Optional Parameters: You can use optional parameters (either positional or named) to achieve similar behavior. This allows you to define a single method that can accept a variable number of parameters.
+// Optional Parameters: You can use optional parameters (either positional or named)
+// to achieve similar behavior. This allows you to define a single method that can accept a variable number of parameters.
 
 // Example with Optional Positional Parameters:
 
